@@ -40,7 +40,7 @@ $router->get('/quiz/{id}', ['as' => 'quiz',
 'uses' => 'QuizController@quiz'
 ]);
 
-$router->get('/quiz/{id}', ['as' => 'quiz_post', 
+$router->post('/quiz/{id}', ['as' => 'quiz_post', 
 'uses' => 'QuizController@quiz_post'
 ]);
 

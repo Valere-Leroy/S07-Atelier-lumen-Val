@@ -31,7 +31,11 @@
                 <?= $question->question ?>
             </div>
             <div class="question__choices">
-            
+            <?php if ($result_checked[$question->id]['result']) : ?>
+                <?= $question->answer->find($result_checked[$question->id]['answer_id'])->description; ?> est la bonne réponse.
+                <?php else :?>
+                <?= $question->answer->find($result_checked[$question->id]['answer_id'])->description; ?> est la mauvaise réponse.
+            <?php endif; ?>
             </div>
         </div>
         <?php endforeach; ?>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Quiz;
 use App\Utils\UserSession;
+use Illuminate\Http\Request;
 
 class QuizController extends Controller
 {
@@ -39,27 +40,27 @@ class QuizController extends Controller
 
         foreach ($result as $question_id => $answer_id)
         {
-            $question = $quiz->questions->find($question_id);
+            $question = $quiz->question->find($question_id);
             $correct_answer = $question->answers_id;
             if ($correct_answer == $answer_id)
             {
                 $note++;
                 $result_checked[$question_id] = 
                 [ 'answer_id' => $answer_id,
-                   "result"  => "true"
+                   "result"  => true
                 ];
             }
             else
             {
                 $result_checked[$question_id] = 
                 [ 'answer_id' => $answer_id,
-                   "result"  => "false"
+                   "result"  => false
                 ];
             }
         }
 
 
-
+        //dump($result_checked);
         
         if (UserSession::isConnected())
         {
