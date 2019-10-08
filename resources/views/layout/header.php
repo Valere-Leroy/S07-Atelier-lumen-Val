@@ -33,9 +33,15 @@
                         Accueil
                     </a>
                 </li>
+                <li>
+                    <a href="<?= route('tags') ?>">
+                        <i></i>
+                        Les sujets
+                    </a>
+                </li>
                 <?php if (isset($user_connected)) : ?>
                 <li>
-                    <a href="#">
+                    <a href="<?= route('profil') ?>">
                         <i></i>
                         Mon compte
                     </a>

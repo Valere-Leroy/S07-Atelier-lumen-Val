@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . "/layout/header.php";?>
 <div>
-    <h2><?= $quiz->title ?>
-        <span><?= $quiz->question->count() ?> questions</span>
+    <h2> Résultat de <?= $quiz->title ?>
+        <span><?= $note . "/" . $quiz->question->count() ?></span>
     </h2>
 </div>
 
@@ -31,14 +31,7 @@
                 <?= $question->question ?>
             </div>
             <div class="question__choices">
-            <?php foreach($question->answer->shuffle() as $answer): ?>
-                <div>
-                    <input type="radio" name="<?= $question->id ?>" id="<?= $answer->id ?>" value="<?= $answer->id ?>" required>
-                    <label for="<?= $answer->id ?>">
-                        <?= $answer->description ?>
-                    </label>
-                </div>
-                <?php endforeach; ?>
+            
             </div>
         </div>
         <?php endforeach; ?>
